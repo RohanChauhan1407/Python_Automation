@@ -21,7 +21,7 @@ def scrape_page(url, base_domain):
     soup = BeautifulSoup(response.text, "html.parser")
 
     # Extract and store emails
-    emails = set(re.findall(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", soup.get_text()))
+    emails = set(re.findall(r"\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b", soup.get_text()))
     emails_found.update(emails)
 
     links = []
